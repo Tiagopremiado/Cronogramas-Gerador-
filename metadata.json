@@ -1,0 +1,5 @@
+{
+  "name": "Gerador de cronograma FOPE ",
+  "description": "An intelligent system for FOPE – Força Pré-Militar Brasileira, to dynamically manage and create class schedules using AI-powered suggestions for pedagogical progression.",
+  "requestFramePermissions": []
+}
