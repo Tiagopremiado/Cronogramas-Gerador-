@@ -4,10 +4,10 @@ import * as pdfjsLib from 'pdfjs-dist';
 import { Schedule, Activity } from './types';
 
 // O worker é necessário para o pdf.js funcionar.
-// Vite irá empacotar o worker automaticamente, então podemos usar um import para obter a URL.
-// @ts-ignore
-import PdfjsWorker from 'pdfjs-dist/build/pdf.worker.mjs?url';
-pdfjsLib.GlobalWorkerOptions.workerSrc = PdfjsWorker;
+// Usar um link de CDN é uma forma robusta de garantir que o worker seja encontrado,
+// evitando problemas com a resolução de caminhos locais durante o build.
+const pdfjsVersion = '4.4.168'; // Versão do package.json
+pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsVersion}/pdf.worker.mjs`;
 
 export const generatePdf = (schedule: Schedule) => {
   const doc = new jsPDF();
